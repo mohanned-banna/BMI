@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 >   (BMI) حاسبة مؤشر كتلة الجسم   </h1>
+        <form action="#">
+            <label for="">الوزن</label><br>
+            <input type="number"   id="number1"><br>
+            <label for="">الطول</label><br>
+            <input type="number"  step="0.01" id="number2"><br>
+            <button id="btn">حساب</button><br>
+            <span id="read"></span><br>
+            <span id="read-only"></span>
+
+        </form>
+    
+   
+    <script>
+        
+        document.getElementById("btn").addEventListener("click", function(){
+            var number1 = document.getElementById("number1").value ;
+            var number2 = document.getElementById("number2").value ;
+            
+            var result = number1 / (Math.pow(Number(number2),2));
+            document.getElementById("read").innerHTML = result;
+            switch(true){
+                case(result < 18): document.getElementById("read-only").innerHTML = "نحافة";
+                break;
+                case(result > 18 && result <25): document.getElementById("read-only").innerHTML = "وزن مثالي";
+                break;
+                case(result > 24.9 && result <30): document.getElementById("read-only").innerHTML = "وزن زائد";
+                break;
+                case(result > 29.9 && result <35): document.getElementById("read-only").innerHTML = "سمنة درجة أولى";
+                break;
+                case(result > 34.9 && result <40): document.getElementById("read-only").innerHTML = "سمنة درجة  ثانية";
+                break;
+                case(result >= 40): document.getElementById("read-only").innerHTML = "سمنة  خطيرة";
+                break;
+                default: document.getElementById("read").innerHTML = "إدخال خاطئ"
+
+
+            }
+            
+            
+            // console.log("click")
+        })
+        
+        
+        
+        
+    </script>
+</body>
+</html>
